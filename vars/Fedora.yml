@@ -1,0 +1,3 @@
+ansible_pkg_mgr: 'dnf'
+nfs_client_pacakges:
+  - nfs-utils

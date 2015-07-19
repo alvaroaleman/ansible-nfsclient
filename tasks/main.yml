@@ -1,2 +1,31 @@
 ---
 # tasks file for ansible-nfsclient
+
+- name: assert platform
+  tags: nfs
+  assert:
+    that: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
+          (ansible_distribution == 'Fedora' and ansible_distribution_major_version == '22') or
+          ansible_distribution_release == 'trusty'
+
+- name: Import variables
+  tags: nfs
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Install necesary packages
+  tags: nfs
+  become: true
+  with_items: nfs_client_pacakges
+  action: "{{ ansible_pkg_mgr }} state=installed name={{ item }}"
+
+- name: Create mounts
+  tags: nfs
+  become: true
+  with_items: nfs_mounts
+  when: nfs_mounts is defined
+  mount:
+    state=mounted
+    name="{{ item.mountpoint }}"
+    src="{{ item.src }}"
+    opts="{{ item.opts }}"
+    fstype=nfs

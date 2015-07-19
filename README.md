@@ -1,32 +1,21 @@
 # ansible-nfsclient
 
-## Synopsis
-
-Synopsis...
-
 ## Description
 
-Description...
+This role sets up nfs mounts
 
 ## Requirements
 
-Requirements...
+* CentOS 7
+* Fedora 22
+* Ubuntu Trusty
 
 ## Role Variables
 
-* ``variable_name``: Variable description (<!variable type>, default: ``variable default value``)
-
-### complex_variable_name
-
-Complex variable documentation...
-
-### another_complex_variable_name
-
-Complex variable documentation...
-
-## Dependencies
-
-Dependencies...
+    nfs_mounts:
+        - mountpoint: /my/mountpoint
+          src: nfs.example.com:/exported/dir
+          opts: rw
 
 ## Example Playbook
 
@@ -36,7 +25,7 @@ Dependencies...
 
 ## License
 
-Apache Version 2.0
+GNU AFFERO GENERAL PUBLIC LICENSE Version 3
 
 ## Integration testing
 
@@ -68,7 +57,7 @@ Ruby with rake and bundler available.
 
 ## Author information
 
-<!Author Name> @<!email_prefix> <!email_suffix>
+Alvaro Aleman
 
 
 <!-- vim: set nofen ts=4 sw=4 et: -->
