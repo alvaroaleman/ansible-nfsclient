@@ -12,7 +12,7 @@
   tags: nfs
   include_vars: "{{ ansible_distribution }}.yml"
 
-- name: Install necesary packages
+- name: Install packages
   tags: nfs
   become: true
   with_items: nfs_client_pacakges
