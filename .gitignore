@@ -24,3 +24,7 @@ Gemfile.lock
 /temp/
 /tmp/
 envvars-vagrant
+
+# Vim
+*.swp
+*.swo
