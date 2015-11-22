@@ -13,12 +13,22 @@ This role sets up nfs mounts
 ## Role Variables
 
 * ``nfs_mountpoint_base``: The base folder to which all mounts are relative, will only be used if defined (string, default: ``undefined``)
+* ``nfs_server``: NFS server to use for all mounts, will only be used if defined (string, default: ``undefined``)
 
 ```yml
+## Sample with undefined nfs_mountpoint_base and undefined nfs_server
 nfs_mounts:
-    - mountpoint: /my/mountpoint          # Mandatory
-      src: nfs.example.com:/exported/dir  # Mandatory
-      opts: rw                            # Optional, default: rw
+  - mountpoint: /my/mountpoint          # Mandatory
+    src: nfs.example.com:/exported/dir  # Mandatory
+    opts: rw                            # Optional, default: rw
+
+## Sample with nfs_mountpoint_base and nfs_server defined
+nfs_mountpoint_base: '/mnt'
+nfs_server: 'nfs.example.com'
+nfs_mounts:
+  - mountpoint: 'mountpoint'            # Must not be preceeded with a slash
+    src: '/exported/dir'                # Must be preceeded with a slash
+    opts: rw                            # Optional
 ```
 
 ## Example Playbook
