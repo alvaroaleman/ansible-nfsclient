@@ -25,7 +25,7 @@
   when: nfs_mounts is defined
   mount:
     state=mounted
-    name="{{ item.mountpoint }}"
+    name="{{ nfs_mountpoint_base + '/' +  item.mountpoint if nfs_mountpoint_base is defined else item.mountpoint }}"
     src="{{ item.src }}"
     opts="{{ item.opts|default('rw') }}"
     fstype=nfs

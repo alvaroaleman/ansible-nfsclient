@@ -12,6 +12,8 @@ This role sets up nfs mounts
 
 ## Role Variables
 
+* ``nfs_mountpoint_base``: The base folder to which all mounts are relative, will only be used if defined (string, default: ``undefined``)
+
 ```yml
 nfs_mounts:
     - mountpoint: /my/mountpoint          # Mandatory
