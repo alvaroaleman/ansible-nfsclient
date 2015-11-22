@@ -27,5 +27,5 @@
     state=mounted
     name="{{ item.mountpoint }}"
     src="{{ item.src }}"
-    opts="{{ item.opts }}"
+    opts="{{ item.opts|default('rw') }}"
     fstype=nfs

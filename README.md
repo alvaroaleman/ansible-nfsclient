@@ -12,10 +12,12 @@ This role sets up nfs mounts
 
 ## Role Variables
 
-    nfs_mounts:
-        - mountpoint: /my/mountpoint
-          src: nfs.example.com:/exported/dir
-          opts: rw
+```yml
+nfs_mounts:
+    - mountpoint: /my/mountpoint          # Mandatory
+      src: nfs.example.com:/exported/dir  # Mandatory
+      opts: rw                            # Optional, default: rw
+```
 
 ## Example Playbook
 
